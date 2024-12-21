@@ -34,3 +34,11 @@ Add Feature: User Authentication (Login, Register, Logout)
 5. Add a register page
 6. Add a logout feature
 7. Add tests for user authentication
+
+#### v0.4.0
+Add Feature: Admin Dashboard
+1. Add an admin dashboard page
+2. Add user search util functions
+3. Add user list & search page
+4. Add user detail page
+5. Add tests for admin dashboard
