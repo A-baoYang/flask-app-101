@@ -1,6 +1,14 @@
-version: '2'
+version: '3.3'
 
 services:
+  redis:
+    image: redis:3.0-alpine
+    command: redis-server --requirepass devpassword
+    volumes:
+      - 'redis:/var/lib/redis/data'
+    ports:
+      - '6380:6379'
+
   website:
     # build: .
     image: asia-east1-docker.pkg.dev/pirate-gemini-8394/prac/flask-app:latest
@@ -15,3 +23,15 @@ services:
       - '.:/snakeeyes'
     ports:
       - '8000:8000'
+
+  celery:
+    build: .
+    # image: celery:latest
+    command: celery -A snakeeyes.blueprints.contact.tasks worker -l info
+    env_file:
+      - '.env'
+    volumes:
+      - '.:/snakeeyes'
+
+volumes:
+  redis:
