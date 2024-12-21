@@ -23,3 +23,14 @@ Add Feature: Form Submission and Mail Sending
 2. Add a mail sending feature
 3. Add configuration for mail sending (celery, redis)
 4. Add tests for form submission and mail sending
+
+#### v0.3.0
+Add Feature: User Authentication (Login, Register, Logout)
+0. Add postgresql database and User model
+1. Add cli command to initialize the database
+2. Add libs for db schema & form validation
+3. Add a user authentication feature
+4. Add a login page
+5. Add a register page
+6. Add a logout feature
+7. Add tests for user authentication
