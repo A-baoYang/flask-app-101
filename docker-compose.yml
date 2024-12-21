@@ -2,7 +2,8 @@ version: '2'
 
 services:
   website:
-    build: .
+    # build: .
+    image: asia-east1-docker.pkg.dev/pirate-gemini-8394/prac/flask-app:latest
     command: >
       gunicorn -b 0.0.0.0:8000
         --access-logfile -
