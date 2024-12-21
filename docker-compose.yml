@@ -1,6 +1,15 @@
 version: '3.3'
 
 services:
+  postgres:
+    image: postgres:9.5
+    env_file:
+      - '.env'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+    ports:
+      - '5432:5432'
+
   redis:
     image: redis:3.0-alpine
     command: redis-server --requirepass devpassword
@@ -25,8 +34,8 @@ services:
       - '8000:8000'
 
   celery:
-    build: .
-    # image: celery:latest
+    # build: .
+    image: asia-east1-docker.pkg.dev/pirate-gemini-8394/prac/flask-app:latest
     command: celery -A snakeeyes.blueprints.contact.tasks worker -l info
     env_file:
       - '.env'
@@ -34,4 +43,5 @@ services:
       - '.:/snakeeyes'
 
 volumes:
+  postgres:
   redis:
