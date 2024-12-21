@@ -48,16 +48,17 @@ def seed():
 
     :return: User instance
     """
-    if User.find_by_identity(app.config['SEED_ADMIN_EMAIL']) is not None:
-        return None
+    with app.app_context():
+        if User.find_by_identity(app.config['SEED_ADMIN_EMAIL']) is not None:
+            return None
 
-    params = {
-        'role': 'admin',
-        'email': app.config['SEED_ADMIN_EMAIL'],
-        'password': app.config['SEED_ADMIN_PASSWORD']
-    }
+        params = {
+            'role': 'admin',
+            'email': app.config['SEED_ADMIN_EMAIL'],
+            'password': app.config['SEED_ADMIN_PASSWORD']
+        }
 
-    return User(**params).save()
+        return User(**params).save()
 
 
 @click.command()
