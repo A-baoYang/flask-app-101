@@ -17,7 +17,7 @@ Add Tests and CLI
 1. Add a basic test for the main app
 2. Add a basic CLI command for the main app tests
 
-#### v0.0.6
+#### v0.0.8
 Add Feature: Form Submission and Mail Sending
 1. Add a form submission page
 2. Add a mail sending feature
